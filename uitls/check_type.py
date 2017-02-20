@@ -20,3 +20,12 @@ def check_int(s):
     if s[0] in ('-', '+'):
         return s[1:].isdigit()
     return s.isdigit()
+
+'''
+字符串比较 is 和==不同
+is is identity testing, == is equality testing. what happens in your code would be emulated in the interpreter like this:
+'''
+a = 'pub'
+b = ''.join(['p', 'u', 'b'])
+print(a == b)
+print(a is b)
