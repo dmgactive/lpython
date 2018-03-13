@@ -110,3 +110,18 @@ print("$$$$$$$$$$$$$$$$$")
 dup_info = dup_info.drop_duplicates(['A'], keep='last')
 print("****************")
 print(dup_info)
+
+dup_info = pd.DataFrame(
+    {
+        'A': [12, 10, 1, 9, 9, 9, 20, 12],
+        'B': [30, 1, 3, 2, 60, 7, 20, 1],
+        'C': [1, 3, 5, 6, 7, 0, 9, 1]
+    }
+)
+dup_info["max_value"] = dup_info.groupby(['A'])['B'].transform(max)
+print(len(dup_info))
+# dup_info["max_label"] = dup_info.apply(lambda row: 'true' if row["A"] == row['B'] else 'false')
+
+# dup_info["max_label"] = dup_info.groupby("A")['B'].transform(lambda x: 'true' if x["B"] > 0 else 'false')
+# dup_info["m"] = dup_info.groupby("A").transform(lambda x: (x - x.mean()) / x.std())
+# dup_info["max_label"] = dup_info.groupby("A")['B'].(lambda x: 'true' if x["B"] > 0 else 'false')
